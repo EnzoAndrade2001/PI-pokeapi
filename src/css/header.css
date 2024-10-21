@@ -3,8 +3,8 @@
     justify-content: space-around; /* Coloca os elementos nas extremidades, com espaço entre eles */
     align-items: center; /* Alinha os elementos verticalmente ao centro */
     width: 100%;
-    padding: 0 20px; /* Um pouco de espaçamento lateral */
     margin-top: 20px;
+    
 }
 
 .header-logo {
@@ -14,8 +14,15 @@
 form{
     max-width: 50%;
     flex-grow: 1;
+    
 }
 
 form input {
     width: 100%; /* Faz com que o input ocupe toda a largura disponível dentro do form */
+    height: 50px;
+    
+}
+
+.d-flex{
+    margin: 0;
 }
