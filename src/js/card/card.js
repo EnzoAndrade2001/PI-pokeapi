@@ -6,8 +6,10 @@ export function createCard(pokemon, index) {
 
     console.log(pokemon);
 
+    const id = pokemon.url.split("/")[pokemon.url.split("/").length - 2];
+
     const card = `<div class="card" style="width: 18rem;">
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index}.png" class="card-img-top" alt="...">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">${pokemon.name}</h5>
                         <p class="card-text"></p>

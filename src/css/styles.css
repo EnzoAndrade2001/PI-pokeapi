@@ -12,6 +12,8 @@ body{
     background-image: url("/src/assets/images/background-pokemon-field.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    margin: 0;
+    padding: 0;
 }
 
 .wrapper-content{
@@ -19,4 +21,26 @@ body{
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+}
+
+/* Classe para escurecer o fundo */
+.dimmed-background {
+    position: relative;
+}
+
+.dimmed-background::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Cor e opacidade para escurecimento */
+    z-index: 1;
+}
+
+/* Barra de pesquisa em destaque */
+form input:focus {
+    z-index: 2;
+    position: relative;
 }
