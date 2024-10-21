@@ -1,5 +1,5 @@
 import { urlPokeApi } from "../constants/constants.js"
-import showError from "../errors/errors.js";
+import { showError } from "../errors/errors.js";
 
 export async function listAllPokemons(urlApi = urlPokeApi){
     try{
@@ -9,7 +9,7 @@ export async function listAllPokemons(urlApi = urlPokeApi){
         return response;
 
     }catch(error){
-        showError("Ops! Um erro inexperado ocorreu ao carregar a lista de pokémons!");
+        showError("Ops! Um erro inexperado ocorreu ao carregar a lista de Pokémons!");
         console.error(error.message);
     }
 }
