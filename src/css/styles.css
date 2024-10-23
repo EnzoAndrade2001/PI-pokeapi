@@ -1,5 +1,6 @@
 
 @import "header.css";
+@import "carousel.css";
 
 main{
     height: 100vh;
@@ -14,6 +15,7 @@ body{
     background-size: cover;
     margin: 0;
     padding: 0;
+    overflow-y: hidden;
 }
 
 .wrapper-content{

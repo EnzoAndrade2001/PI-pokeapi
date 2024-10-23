@@ -1,0 +1,32 @@
+/* Contêiner que define a área visível */
+.carousel-wrapper {
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    position: relative;
+    white-space: nowrap;
+}
+
+/* A "pista" onde os cards vão se mover */
+.carousel-track {
+    display: inline-flex;
+    animation: scroll 90s linear infinite; /* Faz a pista rolar continuamente */
+}
+
+/* Estilos básicos para os cards */
+.card {
+    width: 18rem;
+    margin: 10px;
+    display: inline-block;
+    white-space: normal; /* Permite que o conteúdo do card seja quebrado em linhas */
+}
+
+/* Animação contínua para mover os cards */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Movimenta 50% porque vamos duplicar os itens */
+    }
+}
