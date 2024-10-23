@@ -28,7 +28,7 @@ function filterPokemons(query) {
 }
 
 // Exibe todos os Pokémons inicialmente
-displayAllPokemons();
+//displayAllPokemons();
 
 // Adiciona evento de busca na barra de pesquisa
 searchInput.addEventListener('input', (e) => {
@@ -50,4 +50,26 @@ searchInput.addEventListener('blur', () => {
     body.classList.remove('dimmed-background');
 });
 
+
+// Adiciona as imagens ao carrossel
+function populateCarousel(pokemons) {
+    const carouselContent = document.getElementById('carousel-content');
+    carouselContent.innerHTML = ''; // Limpa o conteúdo existente
+
+    pokemons.forEach((pokemon, index) => {
+        const id = pokemon.url.split("/")[pokemon.url.split("/").length - 2];
+        const isActive = index === 0 ? 'active' : ''; // Define a primeira imagem como ativa
+        
+        const carouselItem = createCard(pokemon, index + 1);
+        `
+            <div class="carousel-item ${isActive}">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" class="d-block w-100" alt="${pokemon.name}">
+            </div>
+        `;
+        carouselContent.innerHTML += carouselItem;
+    });
+}
+
+// Popula o carrossel com os Pokémon
+populateCarousel(results);
 
