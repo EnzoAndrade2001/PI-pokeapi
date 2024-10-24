@@ -33,7 +33,7 @@ export function createCard(pokemon) {
     if (viewMoreButton) {
         viewMoreButton.addEventListener('click', async (event) => {
             event.preventDefault();
-            
+            createModal(pokemon); // Chama a função que abre o modal com os detalhes do Pokémon
             try {
                 const description = await fetchPokemonDetails(id);
                 createModal(pokemon, description); // Passa o Pokémon e sua descrição para o modal

@@ -1,3 +1,4 @@
+//import { pokemonList } from "../constants/constants.js";
 export function createModal(pokemon) {
     const id = pokemon.url.split("/")[pokemon.url.split("/").length - 2];
 
@@ -35,7 +36,14 @@ export function createModal(pokemon) {
             // Inicializar o modal Bootstrap
             const modalElement = document.getElementById('pokemonModal');
             const modalInstance = bootstrap.Modal.getOrCreateInstance(modalElement);
+            
+            modalInstance.show(); // Abre o modal
+
+            //Para o carrossel para não distrair a visão do modal
+            //pokemonList.style.animationPlayState = 'paused';
+
             modalInstance.show(); // Exibir o modal
+
         })
         .catch(error => console.error('Erro ao buscar detalhes do Pokémon:', error));
 }
