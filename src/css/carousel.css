@@ -12,7 +12,7 @@
 .carousel-track {
     display: inline-flex;
     animation-play-state: running;
-    animation: scroll 70s linear infinite; /* Faz a pista rolar continuamente */
+    animation: scroll 10s linear infinite; /* Faz a pista rolar continuamente */
 }
 
 /* Estilos básicos para os cards */
@@ -33,12 +33,22 @@
     margin: 20px;
 }
 
-/* Animação contínua para mover os cards */
+/* Animação contínua para mover os cards da direita para a esquerda*/
 @keyframes scroll {
     0% {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-100%); /* Movimenta 50% porque vamos duplicar os itens */
+        transform: translateX(-100%);
     }
 }
+
+/* Animação contínua para mover os cards da direita para a esquerda
+@keyframes scroll {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}*/
