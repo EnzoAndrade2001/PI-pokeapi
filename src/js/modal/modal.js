@@ -12,19 +12,28 @@ export function createModal(pokemon) {
             document.getElementById('pokemon-height').textContent = `${data.height / 10} m`;
             document.getElementById('pokemon-weight').textContent = `${data.weight / 10} kg`;
 
-            // Tipos do Pokémon
             const types = data.types.map(typeInfo => typeInfo.type.name).join(', ');
             document.getElementById('pokemon-types').textContent = types;
 
-            // Habilidades do Pokémon
             const abilities = data.abilities.map(abilityInfo => abilityInfo.ability.name).join(', ');
             document.getElementById('pokemon-abilities').textContent = abilities;
 
-            // Estatísticas do Pokémon
             const stats = data.stats.map(stat => `<p><strong>${stat.stat.name}:</strong> ${stat.base_stat}</p>`).join('');
             document.getElementById('pokemon-stats').innerHTML = stats;
 
-            // Inicializar o modal Bootstrap (usando a instância global do Bootstrap já carregada via CDN)
+            // Agora buscar a descrição da espécie do Pokémon (flavor_text_entries)
+            return fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}/`);
+        })
+        .then(response => response.json())
+        .then(speciesData => {
+            // Filtrar a descrição em inglês (ou outro idioma se preferir)
+            const flavorText = speciesData.flavor_text_entries.find(entry => entry.language.name === 'en');
+            const description = flavorText ? flavorText.flavor_text : 'No description available';
+
+            // Adicionar a descrição ao modal
+            document.getElementById('pokemon-description').textContent = description;
+
+            // Inicializar o modal Bootstrap
             const modalElement = document.getElementById('pokemonModal');
             const modalInstance = bootstrap.Modal.getOrCreateInstance(modalElement);
             
@@ -32,6 +41,9 @@ export function createModal(pokemon) {
 
             //Para o carrossel para não distrair a visão do modal
             //pokemonList.style.animationPlayState = 'paused';
+
+            modalInstance.show(); // Exibir o modal
+
         })
         .catch(error => console.error('Erro ao buscar detalhes do Pokémon:', error));
 }
