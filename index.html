@@ -34,25 +34,27 @@
     
 
    <!-- Modal para exibir detalhes do Pokémon -->
-   <div class="modal-body d-flex flex-column">
-    <div class="pokemon-section d-flex justify-content-around">
-        
-        <div class="pokemon-image">
-            <img id="pokemon-img" src="" alt="Imagem do Pokémon" class="img-fluid">
+
+<div class="modal fade" id="pokemonModal" tabindex="-1" aria-labelledby="pokemonModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="pokemon-name"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <h5 class="modal-title" id="pokemon-name"></h5>
-        <div class="pokemon-details">
-            <p><strong>Altura:</strong> <span id="pokemon-height"></span></p>
-            <p><strong>Peso:</strong> <span id="pokemon-weight"></span></p>
+        <div class="modal-body">
+          <img id="pokemon-img" src="" alt="Pokemon Image" class="img-fluid">
+          <p><strong>Height:</strong> <span id="pokemon-height"></span></p>
+          <p><strong>Weight:</strong> <span id="pokemon-weight"></span></p>
+          <p><strong>Types:</strong> <span id="pokemon-types"></span></p>
+          <p><strong>Abilities:</strong> <span id="pokemon-abilities"></span></p>
+          <div id="pokemon-stats"></div>
+          <p><strong>Description:</strong> <span id="pokemon-description"></span></p> <!-- Adicionado para a descrição -->
         </div>
+      </div>
     </div>
-    <div class="pokemon-section d-flex justify-content-around mt-3">
-        <div>
-            <p><strong>Tipos:</strong> <span id="pokemon-types"></span></p>
-            <p><strong>Habilidades:</strong> <span id="pokemon-abilities"></span></p>
-        </div>
-        <div id="pokemon-stats"></div>
-    </div>
+  </div>
+  
 
     <!-- Novo parágrafo para a descrição do Pokémon -->
     <div class="pokemon-section mt-4">

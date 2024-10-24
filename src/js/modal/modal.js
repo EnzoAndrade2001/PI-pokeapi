@@ -20,6 +20,18 @@ export function createModal(pokemon) {
             const stats = data.stats.map(stat => `<p><strong>${stat.stat.name}:</strong> ${stat.base_stat}</p>`).join('');
             document.getElementById('pokemon-stats').innerHTML = stats;
 
+            // Agora buscar a descrição da espécie do Pokémon (flavor_text_entries)
+            return fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}/`);
+        })
+        .then(response => response.json())
+        .then(speciesData => {
+            // Filtrar a descrição em inglês (ou outro idioma se preferir)
+            const flavorText = speciesData.flavor_text_entries.find(entry => entry.language.name === 'en');
+            const description = flavorText ? flavorText.flavor_text : 'No description available';
+
+            // Adicionar a descrição ao modal
+            document.getElementById('pokemon-description').textContent = description;
+
             // Inicializar o modal Bootstrap
             const modalElement = document.getElementById('pokemonModal');
             const modalInstance = bootstrap.Modal.getOrCreateInstance(modalElement);
