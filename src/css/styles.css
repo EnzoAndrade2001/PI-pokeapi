@@ -1,6 +1,7 @@
 
 @import "header.css";
 @import "carousel.css";
+@import "modal.css";
 
 main{
     height: 100vh;

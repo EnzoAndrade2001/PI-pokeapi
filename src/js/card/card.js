@@ -23,6 +23,7 @@ export function createCard(pokemon) {
         viewMoreButton.addEventListener('click', (event) => {
             event.preventDefault();
             createModal(pokemon); // Chama a função que abre o modal com os detalhes do Pokémon
+            //pokemonList.style.animationPlayState = 'paused';
         });
     } else {
         console.error(`Botão "Ver mais" para o Pokémon ${pokemon.name} não encontrado.`);

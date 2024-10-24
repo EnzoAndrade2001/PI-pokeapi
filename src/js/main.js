@@ -50,4 +50,19 @@ searchInput.addEventListener('blur', () => {
     body.classList.remove('dimmed-background');
 });
 
+// Carrossel para com mouse em cima
+pokemonList.addEventListener('mouseover', () => {
+    //const carrossel = event.target;
+    pokemonList.style.animationPlayState = 'paused';
+});
 
+// Carrossel retoma com mouse fora
+pokemonList.addEventListener('mouseleave', () => {
+    //const carrossel = event.target;
+    pokemonList.style.animationPlayState = 'running';
+});
+
+// Implementar rolagem controlada
+pokemonList.addEventListener('wheel', () => {
+    pokemonList.style.animation = 'scroll 20s linear infinite;';
+});
