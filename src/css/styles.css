@@ -44,3 +44,123 @@ form input:focus {
     z-index: 2;
     position: relative;
 }
+
+
+
+.pokedex-modal {
+    background-color: #f5f5f5; /* Cor de fundo clara */
+    border: 10px solid #d32f2f; /* Borda vermelha ao redor do card */
+    border-radius: 15px; /* Suaviza os cantos do modal */
+    height: 80vh; /* Altura do modal */
+    max-width: 600px; /* Largura máxima */
+    overflow: hidden; /* Previne overflow de conteúdo */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra ao redor do modal */
+}
+
+
+.modal-header {
+    background-color: #d32f2f; /* Cabeçalho vermelho */
+    color: white;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom: none;
+}
+
+
+/* Modal Pokédex */
+.modal-body {
+    background-color: #f5f5f5; /* Cor de fundo do modal */
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 600px;
+    margin: auto;
+}
+
+.pokemon-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* Centralizar o nome do Pokémon */
+#pokemon-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilização da imagem do Pokémon */
+.pokemon-image img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 5px;
+    border: 2px solid #333;
+}
+
+/* Detalhes de Altura e Peso */
+.pokemon-details {
+    text-align: left;
+    font-size: 1rem;
+}
+
+/* Estatísticas do Pokémon */
+#pokemon-stats {
+    text-align: left;
+    font-size: 1rem;
+}
+
+/* Descrição */
+#pokemon-description {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 10px;
+    text-align: justify;
+}
+
+
+
+
+#pokemon-types .grass { background-color: #78c850; }
+#pokemon-types .fire { background-color: #f08030; }
+#pokemon-types .water { background-color: #6890f0; }
+/* Adicione cores de tipo conforme necessário */
+
+.btn-close {
+    background-color: #333;
+    opacity: 1;
+}
+
+.btn-close:hover {
+    background-color: #000;
+}
+
+.card {
+    border: 3px solid #d32f2f; /* Borda vermelha */
+    border-radius: 10px; /* Para suavizar os cantos, se desejar */
+    overflow: hidden; /* Prevenir que o conteúdo ultrapasse a borda */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra */
+}
+
+.card .btn-primary {
+    border: 2px solid #d32f2f; /* Borda vermelha ao redor do botão */
+    background-color: white; /* Cor de fundo branca para destacar a borda */
+    color: #d32f2f; /* Cor do texto vermelho para combinar */
+    border-radius: 5px; /* Para suavizar os cantos */
+    font-weight: bold; /* Deixa o texto em negrito */
+}
+
+.card .btn-primary:hover {
+    background-color: #d32f2f; /* Cor de fundo vermelha ao passar o mouse */
+    color: white; /* Texto branco ao passar o mouse */
+}
