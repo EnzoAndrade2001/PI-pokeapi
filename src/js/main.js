@@ -33,6 +33,7 @@ displayAllPokemons();
 // Adiciona evento de busca na barra de pesquisa
 searchInput.addEventListener('input', (e) => {
     const query = e.target.value; // Captura o texto digitado pelo usuário
+    pokemonList.style.animationPlayState = 'paused';
     if (query === '') {
         displayAllPokemons(); // Se a barra estiver vazia, exibe todos os Pokémons
     } else {
