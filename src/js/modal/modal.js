@@ -32,7 +32,7 @@ export function createModal(pokemon) {
         .then(response => response.json())
         .then(speciesData => {
             // Filtrar a descrição em inglês (ou outro idioma se preferir)
-            const flavorText = speciesData.flavor_text_entries.find(entry => entry.language.name === 'en');
+            const flavorText = speciesData.flavor_text_entries.find(entry => entry.language.name === 'pt');
             const description = flavorText ? flavorText.flavor_text : 'No description available';
 
             // Adicionar a descrição ao modal

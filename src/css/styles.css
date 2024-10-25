@@ -66,8 +66,8 @@ form input:focus {
 .modal-header {
     background-color: #d32f2f; /* Cabeçalho vermelho */
     color: white;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
     border-bottom: none;
 }
 
@@ -111,12 +111,14 @@ form input:focus {
     border: 2px solid #333;
 }
 
-/* Detalhes de Altura e Peso */
+/* Alinhar seção de detalhes do Pokémon em uma coluna */
 .pokemon-details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     text-align: left;
-    font-size: 1rem;
+    gap: 10px; /* Espaço entre os itens */
 }
-
 /* Estatísticas do Pokémon */
 #pokemon-stats {
     text-align: left;
@@ -132,21 +134,12 @@ form input:focus {
 }
 
 
-
-
-#pokemon-types .grass { background-color: #78c850; }
-#pokemon-types .fire { background-color: #f08030; }
-#pokemon-types .water { background-color: #6890f0; }
-/* Adicione cores de tipo conforme necessário */
-
 .btn-close {
-    background-color: #333;
-    opacity: 1;
+    color: white;
+    border: none; 
 }
 
-.btn-close:hover {
-    background-color: #000;
-}
+
 
 .card {
     border: 3px solid #d32f2f; /* Borda vermelha */
@@ -166,4 +159,14 @@ form input:focus {
 .card .btn-primary:hover {
     background-color: #d32f2f; /* Cor de fundo vermelha ao passar o mouse */
     color: white; /* Texto branco ao passar o mouse */
+}
+
+
+/* Estilos para altura, peso, tipos e habilidades */
+#pokemon-height, #pokemon-weight, #pokemon-types, #pokemon-abilities, #pokemon-stats, #pokemon-description {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 10px; /* Espaço entre os itens */
+    text-align: center; /* Garantir alinhamento à esquerda */
+    width: 100%;
 }
