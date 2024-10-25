@@ -1,6 +1,8 @@
-//import { pokemonList } from "../constants/constants.js";
 export function createModal(pokemon) {
     const id = pokemon.url.split("/")[pokemon.url.split("/").length - 2];
+
+    // Tornar a primeira letra do nome maiúscula
+    const pokemonName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
 
     // Buscar detalhes do Pokémon na PokeAPI
     fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
@@ -8,7 +10,10 @@ export function createModal(pokemon) {
         .then(data => {
             // Preencher os detalhes no modal
             document.getElementById('pokemon-img').src = data.sprites.front_default;
-            document.getElementById('pokemon-name').textContent = data.name;
+
+            // Definir o nome do Pokémon com a primeira letra maiúscula
+            document.getElementById('pokemon-name').textContent = pokemonName;
+
             document.getElementById('pokemon-height').textContent = `${data.height / 10} m`;
             document.getElementById('pokemon-weight').textContent = `${data.weight / 10} kg`;
 
@@ -38,12 +43,6 @@ export function createModal(pokemon) {
             const modalInstance = bootstrap.Modal.getOrCreateInstance(modalElement);
             
             modalInstance.show(); // Abre o modal
-
-            //Para o carrossel para não distrair a visão do modal
-            //pokemonList.style.animationPlayState = 'paused';
-
-            modalInstance.show(); // Exibir o modal
-
         })
         .catch(error => console.error('Erro ao buscar detalhes do Pokémon:', error));
 }
