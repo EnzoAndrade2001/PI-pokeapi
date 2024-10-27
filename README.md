@@ -13,7 +13,9 @@ Este é um projeto de uma *Pokedex em carrossel* que exibe cards de Pokémons, p
 #### Código Principal de Animação
    css
    /* Animação de rolagem do carrossel */
+   
    @keyframes scroll {
+   
        0% {
            transform: translateX(0);
        }
@@ -23,6 +25,7 @@ Este é um projeto de uma *Pokedex em carrossel* que exibe cards de Pokémons, p
    }
 
    .carousel-track {
+   
        display: inline-flex;
        animation: scroll 80s linear infinite;
        animation-play-state: running;
@@ -37,6 +40,7 @@ Este é um projeto de uma *Pokedex em carrossel* que exibe cards de Pokémons, p
 #### Pausa e Retomada da Animação
    js
    const searchInput = document.querySelector('input[type="search"]');
+   
    const track = document.getElementById('carousel-track');
 
    // Pausa a animação ao focar na barra de pesquisa
@@ -57,6 +61,7 @@ Este é um projeto de uma *Pokedex em carrossel* que exibe cards de Pokémons, p
 #### Código de Filtragem da Pesquisa
    js
    function filterPokemons(query) {
+   
        const filtered = results.filter(pokemon => pokemon.name.toLowerCase().includes(query.toLowerCase()));
        pokemonList.innerHTML = '';
        if (filtered.length > 0) {
@@ -67,6 +72,7 @@ Este é um projeto de uma *Pokedex em carrossel* que exibe cards de Pokémons, p
    }
 
    searchInput.addEventListener('input', (e) => {
+   
        const query = e.target.value;
        if (query === '') {
            displayAllPokemons();
@@ -83,6 +89,7 @@ Este é um projeto de uma *Pokedex em carrossel* que exibe cards de Pokémons, p
 #### Código Principal do Modal
    js
    function createModal(pokemon) {
+   
        const modal = document.createElement('div');
        modal.classList.add('modal');
        modal.innerHTML = `
@@ -93,6 +100,7 @@ Este é um projeto de uma *Pokedex em carrossel* que exibe cards de Pokémons, p
                <p>${pokemon.details}</p>
            </div>
        `;
+       
        document.body.appendChild(modal);
        modal.querySelector('.close-modal').addEventListener('click', () => {
            modal.remove();
