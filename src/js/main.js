@@ -5,79 +5,79 @@ import { showError } from "./errors/errors.js";
 
 console.log("carregou!");
 
-const{count, results} = await listAllPokemons();
-
+const { count, results } = await listAllPokemons();
 console.log("pokemons: (results) ", results);
 
 function displayAllPokemons() {
-    pokemonList.innerHTML = ''; // Limpa a lista de pokémons exibida
+    pokemonList.innerHTML = '';
     results.forEach((pokemon, index) => {
-        createCard(pokemon, index + 1); // Cria um card para cada Pokémon
+        createCard(pokemon, index + 1);
     });
 }
 
 // Função para filtrar os Pokémons
 function filterPokemons(query) {
     const filtered = results.filter(pokemon => pokemon.name.toLowerCase().includes(query.toLowerCase()));
-    pokemonList.innerHTML = ''; // Limpa a lista de pokémons
+    pokemonList.innerHTML = '';
     if (filtered.length > 0) {
-        filtered.forEach((pokemon, index) => createCard(pokemon, index + 1)); // Exibe os Pokémons filtrados
+        filtered.forEach((pokemon, index) => createCard(pokemon, index + 1));
     } else {
-        showError('Nenhum Pokémon foi encontrado na sua pesquisa.'); // Exibe mensagem de erro se nenhum Pokémon for encontrado
+        showError('Nenhum Pokémon foi encontrado na sua pesquisa.');
     }
 }
 
 // Exibe todos os Pokémons inicialmente
 displayAllPokemons();
 
-// Adiciona evento de busca na barra de pesquisa
+// Eventos de controle de pesquisa
 searchInput.addEventListener('input', (e) => {
-    const query = e.target.value; // Captura o texto digitado pelo usuário
-    //pokemonList.style.animationPlayState = 'paused';
+    const query = e.target.value;
     if (query === '') {
-        displayAllPokemons(); // Se a barra estiver vazia, exibe todos os Pokémons
+        displayAllPokemons();
     } else {
-        filterPokemons(query); // Caso contrário, filtra os Pokémons
+        filterPokemons(query);
         pokemonList.style.animationPlayState = 'paused';
     }
 });
 
-// Escurecer o fundo quando a barra de pesquisa estiver em foco
 searchInput.addEventListener('focus', () => {
     body.classList.add('dimmed-background');
-    //pokemonList.style.animation = 'none';
     pokemonList.style.animationPlayState = 'paused';
 });
 
-// Remover o escurecimento quando a barra de pesquisa perder o foco
 searchInput.addEventListener('blur', () => {
     body.classList.remove('dimmed-background');
     pokemonList.style.animation = 'scroll 70s linear infinite';
 });
 
-// Carrossel para com mouse em cima
-pokemonList.addEventListener('mouseover', () => {
-    //const carrossel = event.target;
-    pokemonList.style.animationPlayState = 'paused';
+// Variável para rastrear a posição atual
+let currentPosition = 0;
+
+// Função para pausar e mover o carrossel durante a rolagem do mouse
+pokemonList.addEventListener('wheel', (event) => {
+    event.preventDefault();
+
+    const scrollAmount = event.deltaY * 0.5; // Ajusta a sensibilidade do scroll
+    currentPosition -= scrollAmount; // Atualiza a posição
+    
+    pokemonList.style.animation = 'none'; // Pausa a animação CSS
+    pokemonList.style.transform = `translateX(${currentPosition}px)`; // Aplica a nova posição
 });
 
-// Carrossel retoma com mouse fora
+// Função para retomar a animação do ponto atual após o mouse sair
 pokemonList.addEventListener('mouseleave', () => {
-    //const carrossel = event.target;
-    pokemonList.style.animation = 'scroll 70s linear infinite';
+    // Define uma nova animação personalizada com `currentPosition` como ponto de partida
+    pokemonList.style.animation = `scrollFrom ${1000}s linear infinite`;
+    pokemonList.style.setProperty('--start-position', `${currentPosition}px`);
     pokemonList.style.animationPlayState = 'running';
 });
 
-//Controle da direção do slide
-pokemonList.addEventListener('wheel', (event) => {
-    event.preventDefault(); // Evita o comportamento padrão de scroll vertical
+pokemonList.addEventListener('mouseover', () => {
+    pokemonList.style.animationPlayState = 'paused';
+});
 
-    if (event.deltaY > 0) {
-        console.log('Rodinha do mouse rolando para baixo'); // Scroll para baixo
-        pokemonList.style.animation = 'scroll 20s linear infinite reverse';
-        
-    } else {
-        console.log('Rodinha do mouse rolando para cima'); // Scroll para cima
-        pokemonList.style.animation = 'scroll 20s linear infinite';
-    }
+window.addEventListener('load', () => {
+    pokemonList.style.animation = `scrollFrom ${1000}s linear infinite`;
+    pokemonList.style.setProperty('--start-position', '0px');
+    pokemonList.style.animationPlayState = 'running';
 });
