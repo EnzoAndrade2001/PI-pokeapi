@@ -11,9 +11,9 @@
 /* A "pista" onde os cards vão se mover */
 .carousel-track {
     display: inline-flex;
-    animation-play-state: running;
-    animation: scroll 10s linear infinite; /* Faz a pista rolar continuamente */
+    animation: scroll 1000s linear infinite; /* Faz a pista rolar continuamente */
 }
+
 
 /* Estilos básicos para os cards */
 .card {
@@ -34,21 +34,11 @@
 }
 
 /* Animação contínua para mover os cards da direita para a esquerda*/
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
+@keyframes scrollFrom {
+    from {
+        transform: translateX(var(--start-position));
     }
-    100% {
+    to {
         transform: translateX(-100%);
     }
 }
-
-/* Animação contínua para mover os cards da direita para a esquerda
-@keyframes scroll {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}*/
