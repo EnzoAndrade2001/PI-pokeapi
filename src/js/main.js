@@ -77,7 +77,13 @@ pokemonList.addEventListener('mouseover', () => {
 });
 
 window.addEventListener('load', () => {
-    pokemonList.style.animation = `scrollFrom ${1000}s linear infinite`;
+    // Define a posição inicial para garantir o início correto da animação
+    pokemonList.style.transform = 'translateX(0px)';
     pokemonList.style.setProperty('--start-position', '0px');
-    pokemonList.style.animationPlayState = 'running';
+
+    // Aguarda 3 segundos antes de iniciar a animação
+    setTimeout(() => {
+        pokemonList.style.animation = `scrollFrom 1000s linear infinite`;
+        pokemonList.style.animationPlayState = 'running';
+    }, 3000); // 3000 ms = 3 segundos
 });
