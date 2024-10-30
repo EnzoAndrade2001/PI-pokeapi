@@ -1,6 +1,6 @@
 /* Contêiner que define a área visível */
 .carousel-wrapper {
-    overflow: hidden;
+
     width: 100%;
     height: auto;
     position: relative;
@@ -12,6 +12,7 @@
 .carousel-track {
     display: inline-flex;
     animation: scroll 1000s linear infinite; /* Faz a pista rolar continuamente */
+    margin-top: -20px;
 }
 
 
