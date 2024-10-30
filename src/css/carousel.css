@@ -12,26 +12,7 @@
 .carousel-track {
     display: inline-flex;
     animation: scroll 1000s linear infinite; /* Faz a pista rolar continuamente */
-    margin-top: -20px;
-}
-
-
-/* Estilos básicos para os cards */
-.card {
-    width: 18rem;
-    margin: 10px;
-    display: inline-block;
-    white-space: normal; /* Permite que o conteúdo do card seja quebrado em linhas */
-    border: 2px solid transparent; /* Define uma borda padrão */
-    border-radius: 10px;
-    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.6s ease-in-out; /* Transição mais suave */
-}
-
-.card:hover {
-    box-shadow: 0 0 20px rgba(218, 42, 42, 0.8), 0 0 40px rgba(218, 42, 42, 0.8); /* Efeito de brilho */
-    border: 2px solid rgba(218, 42, 42, 0.8); /* Borda brilhante */
-    transform: scale(1.1); /* Aumenta o tamanho do card em 10% */
-    margin: 20px;
+    margin-top: 20px;
 }
 
 /* Animação contínua para mover os cards da direita para a esquerda*/
