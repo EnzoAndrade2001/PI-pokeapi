@@ -1,5 +1,5 @@
 .modal-header {
-    background-color: #d32f2f; /* Cabeçalho vermelho */
+    background-color: #d32f2f;
     color: white;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
@@ -7,9 +7,8 @@
     text-align: center;
 }
 
-/* Modal Pokédex */
 .modal-body {
-    background-color: #f5f5f5; /* Cor de fundo do modal */
+    background-color: #f5f5f5;
     border-radius: 10px;
     padding: 20px;
     display: flex;
@@ -22,14 +21,42 @@
 }
 
 #pokemon-img {
-    width: 100%; /* A imagem ocupa a largura completa do contêiner pai */
-    max-width: 250px; /* Ajuste o tamanho máximo desejado para a imagem */
-    height: auto; /* Mantém a proporção */
-    margin-bottom: 15px; /* Espaço entre a imagem e outros elementos */
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    margin-bottom: 15px;
 }
 
-/* Estatísticas do Pokémon */
 #pokemon-stats {
     text-align: center;
+    font-size: 1rem;
+}
+
+.pokemon-name {
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+#pokemon-description {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 10px;
+    text-align: center;
+}
+.btn-close {
+    background-color: #e4caca;
+    color: #ffffff;
+}
+
+#pokemon-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.pokemon-details {
+    text-align: left;
     font-size: 1rem;
 }

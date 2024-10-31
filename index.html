@@ -40,43 +40,33 @@
         <!-- Aqui a mensagem de erro será exibida -->
     </div>
 
-    
-
    <!-- Modal para exibir detalhes do Pokémon -->
 
-<div class="modal fade" id="pokemonModal" tabindex="-1" aria-labelledby="pokemonModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title w-100 text-center" id="pokemon-name"></h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal fade" id="pokemonModal" tabindex="-1" aria-labelledby="pokemonModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title w-100 text-center" id="pokemon-name"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="pokemon-img" src="" alt="Pokemon Image" class="img-fluid">
+                    <p><strong>Height:</strong> <span id="pokemon-height"></span></p>
+                    <p><strong>Weight:</strong> <span id="pokemon-weight"></span></p>
+                    <p><strong>Types:</strong> <span id="pokemon-types"></span></p>
+                    <p><strong>Abilities:</strong> <span id="pokemon-abilities"></span></p>
+                    <div id="pokemon-stats"></div>
+                    <p><strong>Description:</strong> <span id="pokemon-description"></span></p> <!-- Adicionado para a descrição -->
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-          <img id="pokemon-img" src="" alt="Pokemon Image" class="img-fluid">
-          <p><strong>Height:</strong> <span id="pokemon-height"></span></p>
-          <p><strong>Weight:</strong> <span id="pokemon-weight"></span></p>
-          <p><strong>Types:</strong> <span id="pokemon-types"></span></p>
-          <p><strong>Abilities:</strong> <span id="pokemon-abilities"></span></p>
-          <div id="pokemon-stats"></div>
-          <p><strong>Description:</strong> <span id="pokemon-description"></span></p> <!-- Adicionado para a descrição -->
-        </div>
-      </div>
-    </div>
   </div>
-  
-
-    <!-- Novo parágrafo para a descrição do Pokémon -->
-    <div class="pokemon-section mt-4">
-        <p><strong>Descrição:</strong> <span id="pokemon-description"></span></p>
-    </div>
-</div>
-
-
 
     <!-- Carrega o JS do Bootstrap através de uma CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
 
     <script type="module" src="src/js/main.js"></script>
 

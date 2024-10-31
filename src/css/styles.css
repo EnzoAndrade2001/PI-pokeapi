@@ -16,7 +16,7 @@ body{
     background-size: cover;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 /* Classe para escurecer o fundo */
@@ -41,55 +41,9 @@ form input:focus {
     position: relative;
 }
 
-
-
-.pokemon-section {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 15px;
-}
-
-/* Centralizar o nome do Pokémon */
-#pokemon-name {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #ffffff;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Detalhes de Altura e Peso */
-.pokemon-details {
-    text-align: left;
-    font-size: 1rem;
- 
-}
-
-/* Descrição */
-#pokemon-description {
-    font-size: 1rem;
-    color: #666;
-    margin-top: 10px;
-    
-    text-align: center;
-}
-
-.btn-close {
-    background-color: #e4caca;
-    color: #ffffff;
-}
-
-.pokemon-name {
-    margin-bottom: 20px; /* Espaço abaixo do nome */
-    font-size: 1rem; /* Tamanho da fonte */
-}
-
 .favorites-wrapper {
     width: 100%;
     height: auto;
     position: relative;
-    overflow: hidden; /* Oculta a parte que sair do contêiner */
     white-space: nowrap;
 }
