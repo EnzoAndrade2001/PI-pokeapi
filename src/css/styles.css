@@ -2,6 +2,11 @@
 @import "header.css";
 @import "carousel.css";
 @import "modal.css";
+<<<<<<< Updated upstream
+=======
+@import "card.css";
+@import "cardFav.css";
+>>>>>>> Stashed changes
 
 main{
     height: 100vh;
