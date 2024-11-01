@@ -1,10 +1,8 @@
 /* Contêiner que define a área visível */
 .carousel-wrapper {
-
     width: 100%;
     height: auto;
     position: relative;
-    white-space: nowrap;
     animation-play-state: running;
 }
 
@@ -12,7 +10,7 @@
 .carousel-track {
     display: inline-flex;
     animation: scroll 1000s linear infinite; /* Faz a pista rolar continuamente */
-    margin-top: 20px;
+    margin: 20px;
 }
 
 /* Animação contínua para mover os cards da direita para a esquerda*/

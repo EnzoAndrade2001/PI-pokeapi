@@ -37,6 +37,7 @@ searchInput.addEventListener('input', (e) => {
     } else {
         filterPokemons(query);
         pokemonList.style.animationPlayState = 'paused';
+
     }
 });
 
@@ -47,7 +48,6 @@ searchInput.addEventListener('focus', () => {
 
 searchInput.addEventListener('blur', () => {
     body.classList.remove('dimmed-background');
-    pokemonList.style.animation = 'scroll 70s linear infinite';
 });
 
 // Variável para rastrear a posição atual
