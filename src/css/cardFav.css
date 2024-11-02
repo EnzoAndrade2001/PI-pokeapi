@@ -1,21 +1,9 @@
-
-/* Estilos para os cards dentro dos favoritos */
-.favorites-wrapper .card {
-    width: 12rem; /* Diminui a largura do card */
-    height: 18rem; /* Diminui a altura do card */
-    font-size: 0.9rem; /* Ajusta o tamanho da fonte se necessário */
-    margin: 5px; /* Reduz o espaço ao redor do card */
-    border-radius: 8px; /* Mantém o estilo arredondado, mas ajustado */
-    transform: scale(0.9); /* Ajuste para suavizar a escala */
-
-}
-
-
-
-.card-fav img{
+.card.card-fav img{
     max-width: 70%;
 }
 
-.card-fav{
-    align-items: center;
+.card.card-fav{
+    height: auto;
+    justify-items: center;
+   
 }
