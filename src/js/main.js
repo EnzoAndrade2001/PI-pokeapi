@@ -10,6 +10,7 @@ console.log("pokemons: (results) ", results);
 
 function displayAllPokemons() {
     pokemonList.innerHTML = '';
+    pokemonList.classList.remove('list-view');
     results.forEach((pokemon, index) => {
         createCard(pokemon, index + 1);
     });
@@ -19,6 +20,7 @@ function displayAllPokemons() {
 function filterPokemons(query) {
     const filtered = results.filter(pokemon => pokemon.name.toLowerCase().includes(query.toLowerCase()));
     pokemonList.innerHTML = '';
+    pokemonList.classList.add('list-view');
     if (filtered.length > 0) {
         filtered.forEach((pokemon, index) => createCard(pokemon, index + 1));
     } else {
@@ -48,6 +50,7 @@ searchInput.addEventListener('focus', () => {
 
 searchInput.addEventListener('blur', () => {
     body.classList.remove('dimmed-background');
+    pokemonList.style.animationPlayState = 'running';
 });
 
 // Variável para rastrear a posição atual

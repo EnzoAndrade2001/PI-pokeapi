@@ -47,3 +47,15 @@ form input:focus {
     position: relative;
     white-space: nowrap;
 }
+
+/* Estilo para exibir os cards em uma lista */
+.list-view {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Permite que os elementos quebrem para a próxima linha */
+}
+
+.list-view .card {
+    margin: 10px; /* Adiciona espaço entre os cards */
+}
+
