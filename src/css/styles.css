@@ -52,7 +52,10 @@ form input:focus {
 .list-view {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap; /* Permite que os elementos quebrem para a próxima linha */
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: none;
+    overflow-y: hidden;
 }
 
 .list-view .card {

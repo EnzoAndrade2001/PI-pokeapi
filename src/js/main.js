@@ -20,6 +20,12 @@ function displayAllPokemons() {
 function filterPokemons(query) {
     const filtered = results.filter(pokemon => pokemon.name.toLowerCase().includes(query.toLowerCase()));
     pokemonList.innerHTML = '';
+    pokemonList.style.cssText = '';
+    
+    //REMOVER EVENTO DE ROLAGEM PARA O CASO DE PESQUISA
+    pokemonList.removeEventListener('wheel');
+
+
     pokemonList.classList.add('list-view');
     if (filtered.length > 0) {
         filtered.forEach((pokemon, index) => createCard(pokemon, index + 1));
@@ -39,7 +45,6 @@ searchInput.addEventListener('input', (e) => {
     } else {
         filterPokemons(query);
         pokemonList.style.animationPlayState = 'paused';
-
     }
 });
 
@@ -61,17 +66,27 @@ pokemonList.addEventListener('wheel', (event) => {
     event.preventDefault();
 
     const scrollAmount = event.deltaY * 0.5; // Ajusta a sensibilidade do scroll
-    currentPosition -= scrollAmount; // Atualiza a posição
-    
+    currentPosition -= scrollAmount; // Atualiza a posição desejada
+
+    // Define o limite mínimo para impedir rolagem além da primeira carta
+    const minPosition = 0; // Ajuste conforme necessário
+
+    // Impede a rolagem para a esquerda além do limite mínimo
+    if (currentPosition > minPosition) {
+        currentPosition = minPosition;
+    }
+
     pokemonList.style.animation = 'none'; // Pausa a animação CSS
     pokemonList.style.transform = `translateX(${currentPosition}px)`; // Aplica a nova posição
 });
+
 
 // Função para retomar a animação do ponto atual após o mouse sair
 pokemonList.addEventListener('mouseleave', () => {
     // Define uma nova animação personalizada com `currentPosition` como ponto de partida
     pokemonList.style.animation = `scrollFrom ${1000}s linear infinite`;
     pokemonList.style.setProperty('--start-position', `${currentPosition}px`);
+
     pokemonList.style.animationPlayState = 'running';
 });
 
