@@ -72,7 +72,7 @@ function addFavoriteCard(pokemon, id) {
     const pokemonName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
     
     const favoriteCard = `
-        <div id="favorited-${id}" class="card" style="width: 15rem; position: relative;">
+        <div id="favorited-${id}" class="card card-fav" style="width: 15rem; position: relative;">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" class="card-img-top" alt="${pokemonName}">
             <div class="card-body" style="text-align: center;">
                 <h5 class="card-title pokemon-name">${pokemonName}</h5>
@@ -84,16 +84,33 @@ function addFavoriteCard(pokemon, id) {
 
     favoritesContainer.insertAdjacentHTML('beforeend', favoriteCard);
 
-    // Configurar evento de clique para remover o favorito
-    const removeButton = document.getElementById(`remove-favorite-${id}`);
-    if (removeButton) {
-        removeButton.addEventListener('click', (event) => {
-            event.preventDefault();
-            removeFavoritePokemon(id);
-        });
-    }
-}
+// Configurar evento de clique para remover o favorito
+const removeButton = document.getElementById(`remove-favorite-${id}`);
+if (removeButton) {
+    removeButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        
+        // Remove o Pokémon do Set de favoritos
+        favoritePokemons.delete(id);
+        saveFavoritePokemonsToLocalStorage();
 
+        // Remove o card de favoritos da interface
+        const favoriteCard = document.getElementById(`favorited-${id}`);
+        if (favoriteCard) {
+            favoriteCard.remove();
+        }
+
+        // Remover a estrela no card correspondente no carrossel
+        const carouselCard = document.getElementById(`favorite-${id}`).closest(".card");
+        if (carouselCard) {
+            const favoriteIcon = carouselCard.querySelector(".favorite-icon");
+            if (favoriteIcon) {
+                favoriteIcon.style.display = 'none'; // Ocultar a estrela no card do carrossel
+            }
+        }
+    });
+}
+}
 
 // Função para buscar dados do Pokémon pela API
 async function fetchPokemonDataById(id) {
@@ -112,6 +129,8 @@ function removeFavoritePokemon(id) {
     document.getElementById(`favorited-${id}`).remove(); // Remove o card da interface
     saveFavoritePokemonsToLocalStorage(); // Atualiza o localStorage
 }
+
+
 
 // Exibir os favoritos salvos no localStorage ao carregar a página
 document.addEventListener('DOMContentLoaded', async () => {
