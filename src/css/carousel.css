@@ -11,7 +11,6 @@
     display: inline-flex;
     animation: scroll 1000s linear infinite; /* Faz a pista rolar continuamente */
     margin: 20px;
-    padding: 20px;
 }
 
 /* Animação contínua para mover os cards da direita para a esquerda*/
