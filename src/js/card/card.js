@@ -4,6 +4,7 @@ import { createModal } from "../modal/modal.js";
 // Contêiner dos favoritos
 const favoritesContainer = document.getElementById('favorites-container');
 const favoritePokemons = new Set(getFavoritePokemonsFromLocalStorage()); // Para evitar duplicatas
+const favoritesTitle = document.getElementById('favorites-title'); // Título dos favoritos
 
 // Carregar favoritos do localStorage
 function getFavoritePokemonsFromLocalStorage() {
@@ -13,6 +14,11 @@ function getFavoritePokemonsFromLocalStorage() {
 // Salvar favoritos no localStorage
 function saveFavoritePokemonsToLocalStorage() {
     localStorage.setItem('favoritePokemons', JSON.stringify(Array.from(favoritePokemons)));
+}
+
+// Verifica se o contêiner de favoritos está vazio e oculta o título se necessário
+function updateFavoritesTitleVisibility() {
+    favoritesTitle.style.display = favoritesContainer.childElementCount === 0 ? 'none' : 'block';
 }
 
 export function createCard(pokemon) {
@@ -58,12 +64,14 @@ export function createCard(pokemon) {
                     favoritedCard.remove();
                 }
                 saveFavoritePokemonsToLocalStorage();
+                updateFavoritesTitleVisibility();
             } else {
                 // Adicione o Pokémon aos favoritos
                 favoritePokemons.add(id);
                 favoriteIcon.style.display = 'inline'; // Mostra a estrela no card do carrossel
                 addFavoriteCard(pokemon, id);
                 saveFavoritePokemonsToLocalStorage();
+                updateFavoritesTitleVisibility();
             }
         });
     }
@@ -77,13 +85,25 @@ function addFavoriteCard(pokemon, id) {
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" class="card-img-top" alt="${pokemonName}">
             <div class="card-body" style="text-align: center;">
                 <h5 class="card-title pokemon-name">${pokemonName}</h5>
+                <a href="#" class="btn btn-primary view-more-fav" id="view-more-fav-${id}">Ver mais</a>
                 <a href="#" class="btn btn-primary remove-favorite" id="remove-favorite-${id}">Excluir</a>
+                 
             </div>
             <span class="favorite-icon" style="position: absolute; top: 5px; left: 5px; font-size: 1.5rem; color: gold;">★</span>
         </div>
     `;
 
     favoritesContainer.insertAdjacentHTML('beforeend', favoriteCard);
+    updateFavoritesTitleVisibility();
+
+    // Configurar evento de clique para o botão "Ver mais" no card de favoritos
+    const viewMoreFavButton = document.getElementById(`view-more-fav-${id}`);
+    if (viewMoreFavButton) {
+        viewMoreFavButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            createModal(pokemon);
+        });
+    }
 
 // Configurar evento de clique para remover o favorito
 const removeButton = document.getElementById(`remove-favorite-${id}`);
@@ -109,6 +129,7 @@ if (removeButton) {
                 favoriteIcon.style.display = 'none'; // Ocultar a estrela no card do carrossel
             }
         }
+        updateFavoritesTitleVisibility();
     });
 }
 }
@@ -144,4 +165,5 @@ document.addEventListener('DOMContentLoaded', async () => {
             addFavoriteCard(pokemon, id);
         }
     }
+    updateFavoritesTitleVisibility(); // Ocultar o título se não houver favoritos carregados
 });
