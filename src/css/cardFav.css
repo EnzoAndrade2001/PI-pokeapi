@@ -19,7 +19,6 @@
     overflow-y: auto;
     gap: 15px; /* Espaçamento entre os cards */
     padding: 10px; /* Opcional: adiciona espaçamento interno no contêiner */
-    background-color: black;
 
 }
 

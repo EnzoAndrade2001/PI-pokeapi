@@ -21,7 +21,7 @@ function filterPokemons(query) {
     const filtered = results.filter(pokemon => pokemon.name.toLowerCase().includes(query.toLowerCase()));
     pokemonList.innerHTML = '';
     pokemonList.style = ''; //para a animação na visualização da pesquisa
-    
+    pokemonList.style.animationPlayState = 'paused';
     // Removendo o evento em uma linha
     pokemonList.removeEventListener('wheel', scrollHandler);
 

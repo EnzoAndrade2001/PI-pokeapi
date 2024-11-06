@@ -2,10 +2,7 @@
 @import "carousel.css";
 @import "modal.css";
 @import "card.css";
-
 @import "cardFav.css";
-
-
 
 main{
     height: 100vh;
@@ -15,22 +12,19 @@ body{
     display: flex;
     flex-direction: column;
     row-gap: 40px;
+    background-color: black;
     background-image: url("/src/assets/images/background-pokemon-black.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
-
     overflow-x: hidden;
     height: 100vh; /* Garante que o fundo ocupe toda a altura da janela de visualização */
-    background-position: center -550px; 
+
 }
-
-
 
 .wrapper-content{
     display: flex;
     justify-content: center;
-    gap: 20px;
     flex-wrap: wrap;
 
 }
@@ -72,6 +66,7 @@ form input:focus {
     justify-content: center;
     animation: none;
     overflow-y: hidden;
+    padding: 10px;
 }
 
 .list-view .card {
