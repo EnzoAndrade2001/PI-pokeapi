@@ -7,3 +7,34 @@
     justify-items: center;
    
 }
+
+#favorites-container .card {
+    
+    max-width: 100%; /* Garante que os cards não ultrapassem o contêiner */
+}
+#favorites-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha */
+    justify-content: center;
+    overflow-y: auto;
+    gap: 15px; /* Espaçamento entre os cards */
+    padding: 10px; /* Opcional: adiciona espaçamento interno no contêiner */
+    background-color: black;
+
+}
+
+.favorites-title {
+    font-size: 2rem; /* Tamanho da fonte */
+    font-weight: bold; /* Negrito */
+    color: white; /* Cor do texto */
+    text-align: center; /* Centraliza o texto */
+    margin-bottom: 20px; /* Espaço abaixo do título */
+    padding: 10px; /* Preenchimento dentro da borda */
+    background-color: red; /* Cor de fundo vermelha */
+    border: 1px solid red; /* Borda vermelha */
+    border-radius: 5px; /* Borda arredondada */
+    width: fit-content; /* Ajusta a largura conforme o tamanho do texto */
+    margin-left: auto;
+    margin-right: auto; /* Centraliza o título horizontalmente */
+    margin-top: 15px;
+}
