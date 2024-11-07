@@ -57,6 +57,12 @@ searchInput.addEventListener('blur', () => {
     console.log("blur")
     body.classList.remove('dimmed-background');
     pokemonList.style.animationPlayState = 'running';
+    
+    if(searchInput.value === "" ){
+        pokemonList.addEventListener('wheel', scrollHandler);
+    }
+   
+    
 });
 
 // Variável para rastrear a posição atual
