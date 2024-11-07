@@ -1,7 +1,8 @@
 import { createCard } from "./card/card.js";
 import { listAllPokemons } from "./fetchApi/fetchfunctions.js";
-import { pokemonList, searchInput, body } from "./constants/constants.js";
+import { pokemonList, searchInput, body, modal } from "./constants/constants.js";
 import { showError } from "./errors/errors.js";
+import { createModal } from "./modal/modal.js";
 
 console.log("carregou!");
 
@@ -53,6 +54,7 @@ searchInput.addEventListener('focus', () => {
 });
 
 searchInput.addEventListener('blur', () => {
+    console.log("blur")
     body.classList.remove('dimmed-background');
     pokemonList.style.animationPlayState = 'running';
 });
@@ -76,26 +78,33 @@ const scrollHandler = (event) => {
     pokemonList.style.animation = 'none';
     pokemonList.style.transform = `translateX(${currentPosition}px)`;
 };
-
-// Adicionando o evento
 pokemonList.addEventListener('wheel', scrollHandler);
 
-
-
-// Função para retomar a animação do ponto atual após o mouse sair
 pokemonList.addEventListener('mouseleave', () => {
-    // Define uma nova animação personalizada com `currentPosition` como ponto de partida
+    console.log("modal fechada!")
+    pokemonList.style.animationPlayState = 'running';
     pokemonList.style.animation = `scrollFrom ${1000}s linear infinite`;
     pokemonList.style.setProperty('--start-position', `${currentPosition}px`);
     pokemonList.classList.add('carrosel-track');
-    pokemonList.style.animationPlayState = 'running';
 });
 
+modal.addEventListener("shown.bs.modal", () => {
+    console.log("shown.bs.modal")
+    pokemonList.style.animationPlayState = 'paused';
+})
+
+modal.addEventListener("hide.bs.modal", () => {
+    pokemonList.style.animationPlayState = 'running';
+})
+
+
 pokemonList.addEventListener('mouseover', () => {
+    console.log("mouseover")
     pokemonList.style.animationPlayState = 'paused';
 });
 
-window.addEventListener('load', () => {
+window.addEventListener('onload', () => {
+    console.log("onload")
     // Define a posição inicial para garantir o início correto da animação
     pokemonList.style.transform = 'translateX(0px)';
     pokemonList.style.setProperty('--start-position', '0px');

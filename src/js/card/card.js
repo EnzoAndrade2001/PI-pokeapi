@@ -40,6 +40,7 @@ export function createCard(pokemon) {
     if (viewMoreButton) {
         viewMoreButton.addEventListener('click', (event) => {
             event.preventDefault();
+            console.log('tá aberto');
             pokemonList.style.animationPlayState = 'paused';
             createModal(pokemon);
         });
