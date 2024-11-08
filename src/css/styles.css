@@ -3,9 +3,14 @@
 @import "modal.css";
 @import "card.css";
 @import "cardFav.css";
+@import "responsividade.css";
 
-
-
+/* Reseta o estilo de margens e padding para todos os elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 main{
     height: 100vh;
@@ -23,6 +28,8 @@ body{
     overflow-x: hidden;
     height: 100vh; /* Garante que o fundo ocupe toda a altura da janela de visualização */
 }
+
+
 
 .wrapper-content{
     display: flex;
@@ -47,10 +54,12 @@ body{
     z-index: 1;
 }
 
+
 /* Barra de pesquisa em destaque */
 form input:focus {
     z-index: 2;
     position: relative;
+    
 }
 
 .favorites-wrapper {
