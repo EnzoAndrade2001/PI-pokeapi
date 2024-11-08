@@ -81,8 +81,6 @@ const scrollHandler = (event) => {
 // Adicionando o evento
 pokemonList.addEventListener('wheel', scrollHandler);
 
-
-
 // Função para retomar a animação do ponto atual após o mouse sair
 pokemonList.addEventListener('mouseleave', () => {
     // Define uma nova animação personalizada com `currentPosition` como ponto de partida
