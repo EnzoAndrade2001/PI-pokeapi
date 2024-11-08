@@ -3,3 +3,4 @@ export const pokemonList = document.getElementById("carousel-track");
 //export const searchList = document.getElementById("search");
 export const searchInput = document.querySelector('form input');
 export const body = document.querySelector('body');
+export const typeIcons = document.querySelectorAll('.type');

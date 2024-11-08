@@ -31,7 +31,6 @@ export function createCard(pokemon) {
     
 
     const card = `
-    
         <div class="card" style="width: 15rem; position: relative;" data-types="${types}">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" class="card-img-top" alt="${pokemonName}">
             <div class="card-body" style="text-align: center;">

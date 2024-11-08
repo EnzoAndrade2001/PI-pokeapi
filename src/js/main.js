@@ -2,7 +2,6 @@ import { createCard } from "./card/card.js";
 import { listAllPokemons } from "./fetchApi/fetchfunctions.js";
 import { pokemonList, searchInput, body } from "./constants/constants.js";
 import { showError } from "./errors/errors.js";
-import { initFilterByType } from './filtroCard/filtroTipoPokemon.js';
 
 console.log("carregou!");
 

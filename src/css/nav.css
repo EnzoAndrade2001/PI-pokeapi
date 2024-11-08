@@ -1,30 +1,34 @@
-.wrapper {
-    width: 80%;
+.nav-wrapper {
+    width: 90%;
     margin: auto;
     display: flex;
-    align-content: center;
-    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-.icon {
+.type {
     border-radius: 100%;
-    height: 70px;
-    width: 70px;
+    height: 55px;
+    width: 55px;
     margin: auto;
     transition: 200ms all;
-    margin-bottom: 30px;
 }
 
-.icon:hover{
+.type:hover{
     filter: saturate(200%);
     transform: scale(1.1);
     cursor: pointer;
 }
 
-.icon img {
-    height: 60%;
-    width: 60%;
-    margin: 20%;
+.type img {
+    height: 50%;
+    width: 50%;
+    margin: 25%;
+}
+
+.all{
+    background: #3a3939;
+    box-shadow: 0 0 20px #3a3939;
 }
 
 .bug {
