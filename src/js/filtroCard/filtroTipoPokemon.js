@@ -1,79 +1,82 @@
-import { pokemonList } from "./constants/constants.js";
-import { createCard } from "./card/card.js";
+import { pokemonList, typeIcons } from "../constants/constants.js";
+import { createCard } from "../card/card.js";
+import { scrollHandler } from "../main.js";
 
-// Seleciona todos os ícones de tipos
-const typeIcons = document.querySelectorAll('.type');
+const typeIdMap = {
+    bug: 7,
+    dark: 17,
+    dragon: 16,
+    electric: 13,
+    fairy: 18,
+    fighting: 2,
+    fire: 10,
+    flying: 3,
+    ghost: 8,
+    grass: 12,
+    ground: 5,
+    ice: 15,
+    normal: 1,
+    poison: 4,
+    psychic: 14,
+    rock: 6,
+    steel: 9,
+    water: 11,
+    // Adicione outros tipos conforme necessário
+};
 
-// Adiciona o evento de clique para cada ícone de tipo
-typeIcons.forEach(icon => {
-    icon.addEventListener('click', () => {
-        // Extrai o tipo do Pokémon da classe do ícone (ex.: "ghost", "poison")
-        const type = icon.classList[1]; 
-        if (type === 'all') {
-            // Mostra todos os Pokémon se o tipo "all" for clicado
-            displayAllPokemons();
-        } else {
-            // Filtra por tipo
-            filterPokemonsByType(type);
-        }
+// Atribui o evento de clique para cada ícone
+export async function pokemonsTipo(){
+    await typeIcons.forEach(icon => {
+        icon.addEventListener('click',async () => {
+            
+            console.log("clicou");
+            // Extrai o tipo da segunda classe do ícone
+            const typeName = icon.classList[1]; 
+            const typeId = typeIdMap[typeName]; // Obtém o ID do tipo usando o mapeamento
+    
+            if (typeId) {
+                console.log(`Filtrando Pokémon do tipo: ${typeName} (ID: ${typeId})`);
+                await filterPokemonsByType(typeId); // Chama a função com o ID correto
+            }
+        });
     });
-});
+}
+
 
 // Função para buscar e exibir os Pokémon de um tipo específico
-async function filterPokemonsByType(type) {
+async function filterPokemonsByType(typeId) {
     try {
         // Faz a requisição para buscar Pokémon de um tipo específico
-        const response = await fetch(`https://pokeapi.co/api/v2/type/${type}`);
+        const response = await fetch(`https://pokeapi.co/api/v2/type/${typeId}/`);
+        console.log("filterPokemonsByType", response);
         const data = await response.json();
-
+        console.log("data: ", data)
         // Limpa a lista atual
         pokemonList.innerHTML = '';
+        pokemonList.style = '';
+        pokemonList.style.animationPlayState = 'paused';
+        pokemonList.removeEventListener('wheel', scrollHandler);
         pokemonList.classList.add('list-view'); // Aplica o estilo list-view
 
         // Itera sobre os Pokémon do tipo especificado e cria os cards
-        const pokemonDataPromises = data.pokemon.map(async (pokemonEntry) => {
-            // Busca os detalhes de cada Pokémon individual
-            const pokemonResponse = await fetch(pokemonEntry.pokemon.url);
-            const pokemonData = await pokemonResponse.json();
-            return pokemonData;
-        });
+        // const pokemonDataPromises = data.pokemon.map(async (pokemonEntry) => {
+        //     // Busca os detalhes de cada Pokémon individual
+        //     const pokemonResponse = await fetch(pokemonEntry.pokemon.url);
+        //     const pokemonData = await pokemonResponse.json();
+        //     return pokemonData;
+        // });
 
         // Aguarda todas as requisições dos Pokémon e cria os cards
-        const pokemonDataList = await Promise.all(pokemonDataPromises);
-        pokemonDataList.forEach(pokemonData => {
-            createCard(pokemonData); // Gera um card para cada Pokémon
+        // const pokemonDataList = await Promise.all(pokemonDataPromises);
+        data.pokemon.forEach(pokemonData => {
+            console.log("pokemonData: ", pokemonData.pokemon)
+            createCard(pokemonData.pokemon); // Gera um card para cada Pokémon
         });
     } catch (error) {
         console.error("Erro ao buscar Pokémon pelo tipo:", error);
     }
 }
 
-// Função para exibir todos os Pokémon, caso o ícone "all" seja clicado
-async function displayAllPokemons() {
-    try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=100`);
-        const data = await response.json();
-
-        // Limpa a lista atual
-        pokemonList.innerHTML = '';
-        pokemonList.classList.add('list-view');
-
-        // Itera sobre todos os Pokémon e cria os cards
-        const pokemonDataPromises = data.results.map(async (pokemonEntry) => {
-            const pokemonResponse = await fetch(pokemonEntry.url);
-            const pokemonData = await pokemonResponse.json();
-            return pokemonData;
-        });
-
-        // Aguarda todas as requisições dos Pokémon e cria os cards
-        const pokemonDataList = await Promise.all(pokemonDataPromises);
-        pokemonDataList.forEach(pokemonData => {
-            createCard(pokemonData);
-        });
-    } catch (error) {
-        console.error("Erro ao buscar todos os Pokémon:", error);
-    }
-}
 
 /*
 Bulbasaur
@@ -83,4 +86,6 @@ Bulbasaur
 {"name":"grass","url":"https://pokeapi.co/api/v2/type/12/"}
 ---- POISON
 {"name":"poison","url":"https://pokeapi.co/api/v2/type/4/"}
+---- ELECTRIC
+{"name":"electric","url":"https://pokeapi.co/api/v2/type/13/"}
 */

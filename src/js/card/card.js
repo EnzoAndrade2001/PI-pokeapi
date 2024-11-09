@@ -22,7 +22,14 @@ function updateFavoritesTitleVisibility() {
 }
 
 export function createCard(pokemon) {
-    const id = pokemon.url.split("/")[pokemon.url.split("/").length - 2];
+    console.log("pokemon: ", pokemon)
+    let id = "";
+    if(pokemon.url.indexOf("types") != -1){
+        console.log(pokemon.url);
+        id = pokemon.url.split("/")[6];
+    }else{
+        id = pokemon.url.split("/")[6];
+    }
     const pokemonName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
      // Verifica se `pokemon.types` está definido e é um array
      const types = pokemon.types && Array.isArray(pokemon.types)
