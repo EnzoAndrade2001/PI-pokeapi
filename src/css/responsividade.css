@@ -1,5 +1,82 @@
-/* Ajustes para telas muito pequenas (celulares) */
-@media (max-width: 480px) {
+    
+
+  
+  
+  /* Ajustes para telas muito pequenas (celulares) */
+@media (min-width: 0px) and (max-width: 480px) {
+    body {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    /* Estilo para o header, organizando logo e barra de pesquisa */
+    .header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza o conteúdo no eixo horizontal */
+        width: 100%;
+        padding: 10px;
+       
+
+       
+       
+    }
+
+    .header-logo {
+        width:300px; 
+        margin-bottom: 10px; /* Espaço entre o logo e a barra de pesquisa */
+    }
+
+    .form-control {
+        width: 400px;
+        margin-bottom: 10px; /* Espaço entre a barra de pesquisa e o conteúdo abaixo */
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+ 
+
+    .wrapper-content {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .card{
+        width: 220px;
+        height: 220px;
+    }
+
+    .card-title{
+        margin-top: -46px;
+    }
+    
+
+
+    .card img{
+        width: 80%;
+        align-self: center;
+        margin-top: -22px;
+
+    }
+    .card .btn-primary {
+        width: 80px;           /* Largura do botão menor */
+        height: 40px;
+        font-size: 77%;
+    }
+
+    .btn-favorite {
+        width: 80px;           /* Largura do botão menor */
+        height: 40px;
+        font-size: 77%;
+       
+    }
+    
+}
+
+@media (min-width: 480px) and (max-width: 720px) {
     body {
         padding: 0;
         margin: 0;
@@ -40,12 +117,186 @@
         padding: 10px;
     }
 
-  
+    .card{
+        width: 220px;
+        height: 220px;
+    }
+
+    .card-title{
+        margin-top: -46px;
+    }
+    
+
+
+    .card img{
+        width: 80%;
+        align-self: center;
+        margin-top: -22px;
+
+    }
+    .card .btn-primary {
+        width: 80px;           /* Largura do botão menor */
+        height: 40px;
+        font-size: 77%;
+    }
+
+    .btn-favorite {
+        width: 80px;           /* Largura do botão menor */
+        height: 40px;
+        font-size: 77%;
+       
+    }
+
+
 }
 
+@media (min-width: 720px) and (max-width: 1024px) {
+
+    body {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    /* Estilo para o header, organizando logo e barra de pesquisa */
+    .header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza o conteúdo no eixo horizontal */
+        width: 100%;
+        padding: 10px;
+       
+
+       
+       
+    }
+
+    .header-logo {
+        width:300px;
+        margin-bottom: 10px; /* Espaço entre o logo e a barra de pesquisa */
+    }
+
+    .form-control {
+        width: 400px;
+        margin-bottom: 10px; /* Espaço entre a barra de pesquisa e o conteúdo abaixo */
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+ 
+
+    .wrapper-content {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .card{
+        width: 220px;
+        height: 220px;
+    }
+
+    .card-title{
+        margin-top: -46px;
+    }
+    
+
+
+    .card img{
+        width: 80%;
+        align-self: center;
+        margin-top: -22px;
+
+    }
+    .card .btn-primary {
+        width: 80px;           /* Largura do botão menor */
+        height: 40px;
+        font-size: 77%;
+    }
+
+    .btn-favorite {
+        width: 80px;           /* Largura do botão menor */
+        height: 40px;
+        font-size: 77%;
+       
+    }
+
+}
+
+
 /* Adiciona a animação do carrossel em telas grandes */
-@media (min-width: 1024px) {
+@media (min-width: 1024px)and (max-width: 1366px) {
     .list-view {
         flex-direction: row;
     }
-}
+
+    .header-logo {
+        width: 100px;
+    }
+
+   
+    /* Estilo para o header, organizando logo e barra de pesquisa */
+    .header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza o conteúdo no eixo horizontal */
+        width: 100%;
+        padding: 10px;
+       
+
+       
+       
+    }
+
+    .header-logo {
+        width:100px;
+        margin-bottom: 10px; /* Espaço entre o logo e a barra de pesquisa */
+    }
+
+    .form-control {
+        width: 400px;
+        margin-bottom: 10px; /* Espaço entre a barra de pesquisa e o conteúdo abaixo */
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+ 
+
+    .wrapper-content {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .card{
+        width: 220px;
+        height: 220px;
+    }
+
+    .card-title{
+        margin-top: -46px;
+    }
+    
+
+
+    .card img{
+        width: 80%;
+        align-self: center;
+        margin-top: -22px;
+
+    }
+    .card .btn-primary {
+        width: 80px;           /* Largura do botão menor */
+        height: 40px;
+        font-size: 77%;
+    }
+
+    .btn-favorite {
+        width: 80px;           /* Largura do botão menor */
+        height: 40px;
+        font-size: 77%;
+       
+    }
+    
+}  
+

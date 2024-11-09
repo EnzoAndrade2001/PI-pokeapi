@@ -13,7 +13,9 @@ form{
     
 }
 
-
+.header-logo{
+    max-width: 300px;
+}
 
 .d-flex{
     margin: 0;
