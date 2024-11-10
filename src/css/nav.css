@@ -4,6 +4,7 @@
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 
 .type {
@@ -12,6 +13,7 @@
     width: 55px;
     margin: auto;
     transition: 200ms all;
+    text-align: center;
 }
 
 .type:hover{
@@ -24,6 +26,26 @@
     height: 50%;
     width: 50%;
     margin: 25%;
+}
+
+.label {
+    position: absolute;
+    bottom: -25px; /* Ajuste conforme necessário para posicionar o rótulo */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.75); /* Fundo escuro com opacidade */
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0; /* Esconde o rótulo inicialmente */
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* Evita que o rótulo interfira no hover */
+}
+
+.type:hover .label {
+    opacity: 1; /* Exibe o rótulo ao passar o mouse */
 }
 
 .all{
