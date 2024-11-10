@@ -22,11 +22,23 @@ function updateFavoritesTitleVisibility() {
 }
 
 export function createCard(pokemon) {
-    const id = pokemon.url.split("/")[pokemon.url.split("/").length - 2];
+    console.log("pokemon: ", pokemon)
+    let id = "";
+    if(pokemon.url.indexOf("types") != -1){
+        console.log(pokemon.url);
+        id = pokemon.url.split("/")[6];
+    }else{
+        id = pokemon.url.split("/")[6];
+    }
     const pokemonName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+     // Verifica se `pokemon.types` está definido e é um array
+     const types = pokemon.types && Array.isArray(pokemon.types)
+     ? pokemon.types.map(typeInfo => typeInfo.type.name).join(',')
+     : 'unknown'; // Valor padrão se `types` estiver indefinido
+    
 
     const card = `
-        <div class="card" style="width: 15rem; position: relative;">
+        <div class="card" style="width: 15rem; position: relative;" data-types="${types}">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" class="card-img-top" alt="${pokemonName}">
             <div class="card-body" style="text-align: center;">
                 <h5 class="card-title pokemon-name">${pokemonName}</h5>
