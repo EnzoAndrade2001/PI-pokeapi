@@ -1,4 +1,4 @@
-import { pokemonList, typeIcons } from "../constants/constants.js";
+import { pokemonList, typeIcons, favList } from "../constants/constants.js";
 import { createCard } from "../card/card.js";
 import { scrollHandler } from "../main.js";
 
@@ -56,18 +56,8 @@ async function filterPokemonsByType(typeId) {
         pokemonList.style = '';
         pokemonList.style.animationPlayState = 'paused';
         pokemonList.removeEventListener('wheel', scrollHandler);
+        favList.style.display = 'none';
         pokemonList.classList.add('list-view'); // Aplica o estilo list-view
-
-        // Itera sobre os Pokémon do tipo especificado e cria os cards
-        // const pokemonDataPromises = data.pokemon.map(async (pokemonEntry) => {
-        //     // Busca os detalhes de cada Pokémon individual
-        //     const pokemonResponse = await fetch(pokemonEntry.pokemon.url);
-        //     const pokemonData = await pokemonResponse.json();
-        //     return pokemonData;
-        // });
-
-        // Aguarda todas as requisições dos Pokémon e cria os cards
-        // const pokemonDataList = await Promise.all(pokemonDataPromises);
         data.pokemon.forEach(pokemonData => {
             console.log("pokemonData: ", pokemonData.pokemon)
             createCard(pokemonData.pokemon); // Gera um card para cada Pokémon
