@@ -4,6 +4,7 @@
 @import "card.css";
 @import "cardFav.css";
 @import "nav.css";
+
 main{
     height: 100vh;
 }
