@@ -1,7 +1,8 @@
 import { createCard } from "./card/card.js";
 import { listAllPokemons } from "./fetchApi/fetchfunctions.js";
-import { pokemonList, searchInput, body, modal } from "./constants/constants.js";
+import { pokemonList, searchInput, body, modal, favList } from "./constants/constants.js";
 import { showError } from "./errors/errors.js";
+import { pokemonsTipo } from "./filtroCard/filtroTipoPokemon.js";
 import { createModal } from "./modal/modal.js";
 
 console.log("carregou!");
@@ -12,6 +13,7 @@ console.log("pokemons: (results) ", results);
 function displayAllPokemons() {
     pokemonList.innerHTML = '';
     pokemonList.classList.remove('list-view');
+    favList.style.display = 'block';
     results.forEach((pokemon, index) => {
         createCard(pokemon, index + 1);
     });
@@ -23,6 +25,7 @@ function filterPokemons(query) {
     pokemonList.innerHTML = '';
     pokemonList.style = ''; //para a animação na visualização da pesquisa
     pokemonList.style.animationPlayState = 'paused';
+    favList.style.display = 'none';
     // Removendo o evento em uma linha
     pokemonList.removeEventListener('wheel', scrollHandler);
 
@@ -70,7 +73,7 @@ let currentPosition = 0;
 
 // Função para pausar e mover o carrossel durante a rolagem do mouse
 // Definindo a função em uma variável
-const scrollHandler = (event) => {
+ export const scrollHandler = (event) => {
     event.preventDefault();
 
     const scrollAmount = event.deltaY * 0.5;
@@ -122,48 +125,4 @@ window.addEventListener('onload', () => {
     }, 3000); // 3000 ms = 3 segundos
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+pokemonsTipo();

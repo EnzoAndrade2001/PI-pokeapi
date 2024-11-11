@@ -4,8 +4,8 @@
 @import "card.css";
 @import "cardFav.css";
 @import "responsividade.css";
+@import "nav.css";
 
-/* Reseta o estilo de margens e padding para todos os elementos */
 * {
     margin: 0;
     padding: 0;
@@ -29,8 +29,6 @@ body{
     height: 100vh; /* Garante que o fundo ocupe toda a altura da janela de visualização */
 }
 
-
-
 .wrapper-content{
     display: flex;
     justify-content: center;
@@ -38,7 +36,6 @@ body{
 
 }
 
-/* Classe para escurecer o fundo */
 .dimmed-background {
     position: relative;
 }
@@ -54,8 +51,6 @@ body{
     z-index: 1;
 }
 
-
-/* Barra de pesquisa em destaque */
 form input:focus {
     z-index: 2;
     position: relative;
@@ -69,7 +64,6 @@ form input:focus {
     white-space: nowrap;
 }
 
-/* Estilo para exibir os cards em uma lista */
 .list-view {
     display: flex;
     flex-direction: row;
