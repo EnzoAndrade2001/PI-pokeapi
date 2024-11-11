@@ -1,6 +1,6 @@
 import { createCard } from "./card/card.js";
 import { listAllPokemons } from "./fetchApi/fetchfunctions.js";
-import { pokemonList, searchInput, body, modal, favList } from "./constants/constants.js";
+import { pokemonList, searchInput, body, modal, favList, logo } from "./constants/constants.js";
 import { showError } from "./errors/errors.js";
 import { pokemonsTipo } from "./filtroCard/filtroTipoPokemon.js";
 import { createModal } from "./modal/modal.js";
@@ -126,3 +126,26 @@ window.addEventListener('onload', () => {
 });
 
 pokemonsTipo();
+
+logo.addEventListener('click', () => {
+    location.reload(); // Recarrega a página
+});
+
+window.addEventListener('reload', () => {
+    // Define a posição inicial para garantir o início correto da animação
+    pokemonList.style.transform = 'translateX(0px)';
+    pokemonList.style.setProperty('--start-position', '0px');
+
+    // Define a animação como 'none' inicialmente para garantir a redefinição
+    pokemonList.style.animation = 'none';
+
+    // Usa requestAnimationFrame para garantir que a animação seja aplicada corretamente
+    setTimeout(() => {
+        requestAnimationFrame(() => {
+            pokemonList.style.animation = `scrollFrom 1000s linear infinite`;
+            pokemonList.style.animationPlayState = 'running';
+        });
+    }, 3000); // Atraso de 3 segundos antes de iniciar a animação
+});
+
+
