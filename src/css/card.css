@@ -9,6 +9,10 @@
     flex-shrink: 0;
     
 }
+.card-length{
+    width: 15rem;
+    position: relative;
+}
 
 .card .btn-primary:hover {
     background-color: #d32f2f; /* Cor de fundo vermelha ao passar o mouse */

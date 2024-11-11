@@ -35,10 +35,9 @@ export function createCard(pokemon) {
      const types = pokemon.types && Array.isArray(pokemon.types)
      ? pokemon.types.map(typeInfo => typeInfo.type.name).join(',')
      : 'unknown'; // Valor padrão se `types` estiver indefinido
-    
-
+  
     const card = `
-        <div class="card" style="width: 15rem; position: relative;" data-types="${types}">
+        <div class="card card-length" data-types="${types}" >
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" class="card-img-top" alt="${pokemonName}">
             <div class="card-body" style="text-align: center;">
                 <h5 class="card-title pokemon-name">${pokemonName}</h5>

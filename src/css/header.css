@@ -7,20 +7,14 @@
     
 }
 
-.header-logo {
-    max-width: 20vw;
-}
-
 form{
     max-width: 50%;
     flex-grow: 1;
     
 }
 
-form input {
-    width: 100%; /* Faz com que o input ocupe toda a largura disponível dentro do form */
-    height: 50px;
-    
+.header-logo{
+    max-width: 300px;
 }
 
 .d-flex{
