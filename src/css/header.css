@@ -10,7 +10,7 @@
 form{
     max-width: 50%;
     flex-grow: 1;
-    
+    place-content: center;
 }
 
 .header-logo{
