@@ -263,7 +263,7 @@
 }
 
 /* Adiciona a animação do carrossel em telas grandes */
-@media (min-width: 1024px) and (max-width: 1366px) {
+@media (min-width: 1024px)and (max-width: 1366px) {
     .list-view {
         flex-direction: row;
     }
@@ -345,9 +345,14 @@
     .header-content {
         display: flex; /* Faz o layout dos filhos em linha */
         justify-content: space-around; /* Coloca os elementos nas extremidades, com espaço entre eles */
-        align-items: center;
+        align-items: center; /* Alinha os elementos verticalmente ao centro */
         width: 100%;
         margin-top: 20px;
+        
+    }
+
+    .card-title{
+        margin-top: -35px;
     }
  
     form{
