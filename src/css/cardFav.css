@@ -3,8 +3,7 @@
     align-self: center;
 }
 
-.card.card-fav{
-    height: auto;
+.card.card-fav{ 
     justify-items: center;
    
 }
@@ -28,7 +27,7 @@
     font-weight: bold; /* Negrito */
     color: white; /* Cor do texto */
     text-align: center; /* Centraliza o texto */
-    margin-bottom: 20px; /* Espaço abaixo do título */
+    margin-bottom: 10px; /* Espaço abaixo do título */
     padding: 10px; /* Preenchimento dentro da borda */
     background-color: red; /* Cor de fundo vermelha */
     border: 1px solid red; /* Borda vermelha */

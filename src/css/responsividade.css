@@ -299,7 +299,7 @@
 
     .card.card-fav{
         width: 320px;
-        height: 220px;
+        height: 250px;
     }
 
     .card{
@@ -316,25 +316,14 @@
     #pokemon-img{
         padding: 20px;
         margin-top: -50px;
-        margin-bottom: -30px;
-
+        margin-bottom: 50px;
     }
-
-    .card-title{
-        margin-top: -20px;
-    }
-
+    
     .card img{
         width: 80%;
         align-self: center;
         margin-top: -22px;
-
-    }
-
-    #pokemon-img{
-        padding: 65px;
-        margin-bottom: -76px;
-        margin-top: -80px;
+        margin-bottom: -5px;
     }
 
     .card .btn-primary {
@@ -359,17 +348,11 @@
         align-items: center;
         width: 100%;
         margin-top: 20px;
-        
     }
-
-    .card-title{
-        margin-top: 10px;
-    }
-
+ 
     form{
         max-width: 50%;
         flex-grow: 1;
-        
     }
     
     .header-logo{
