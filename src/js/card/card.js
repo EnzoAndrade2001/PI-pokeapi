@@ -19,6 +19,21 @@ function saveFavoritePokemonsToLocalStorage() {
 // Verifica se o contêiner de favoritos está vazio e oculta o título se necessário
 function updateFavoritesTitleVisibility() {
     favoritesTitle.style.display = favoritesContainer.childElementCount === 0 ? 'none' : 'block';
+    toggleFavoritesScroll(); 
+}
+
+// Função para ativar/desativar o scroll dentro do container de favoritos
+function toggleFavoritesScroll() {
+    const containerHeight = favoritesContainer.offsetHeight;
+    const contentHeight = favoritesContainer.scrollHeight;
+
+    // Se o conteúdo for maior que o contêiner, permite o scroll
+    if (contentHeight > containerHeight) {
+        favoritesContainer.style.overflowY = 'auto';
+    } else {
+        // Se não houver conteúdo suficiente, desabilita o scroll
+        favoritesContainer.style.overflowY = 'hidden';
+    }
 }
 
 export function createCard(pokemon) {

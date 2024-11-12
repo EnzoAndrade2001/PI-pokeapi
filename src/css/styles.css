@@ -12,8 +12,17 @@
     box-sizing: border-box;
 }
 
+body.no-scroll {
+    overflow-y: hidden; /* Impede o scroll vertical */
+}
+
 main{
     height: 100vh;
+}
+
+html, body {
+    touch-action: none; /* Impede o movimento de rolagem com gestos de toque */
+    user-select: none;  /* Impede a seleção do texto ao tentar arrastar */
 }
 
 body{
