@@ -10,7 +10,7 @@
 form{
     max-width: 50%;
     flex-grow: 1;
-    
+    place-content: center;
 }
 
 .header-logo{
@@ -19,4 +19,5 @@ form{
 
 .d-flex{
     margin: 0;
+    height: 50px;
 }

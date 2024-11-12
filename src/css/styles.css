@@ -3,8 +3,8 @@
 @import "modal.css";
 @import "card.css";
 @import "cardFav.css";
-@import "responsividade.css";
 @import "nav.css";
+@import "responsividade.css";
 
 * {
     margin: 0;
@@ -33,9 +33,11 @@ body{
     background-image: url("/src/assets/images/background-pokemon-black.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position-x: center;
     margin: 0;
     overflow-x: hidden;
     height: 100vh; /* Garante que o fundo ocupe toda a altura da janela de visualização */
+
 }
 
 .wrapper-content{

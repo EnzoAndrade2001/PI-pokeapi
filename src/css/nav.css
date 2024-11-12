@@ -48,11 +48,6 @@
     opacity: 1; /* Exibe o rótulo ao passar o mouse */
 }
 
-.all{
-    background: #3a3939;
-    box-shadow: 0 0 20px #3a3939;
-}
-
 .bug {
     background: #92BC2C;
     box-shadow: 0 0 20px #92BC2C;
