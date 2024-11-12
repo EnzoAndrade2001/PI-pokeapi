@@ -5,7 +5,7 @@
 
 .card.card-fav{ 
     justify-items: center;
-   
+    height: 250px;
 }
 
 #favorites-container .card {

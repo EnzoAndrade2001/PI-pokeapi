@@ -42,6 +42,11 @@
         padding: 63px;
     }
 
+    .card.card-fav{ 
+        justify-items: center;
+        height: 220px;
+    }
+
     .form-control {
         width: 400px;
         margin-bottom: 10px; /* Espaço entre a barra de pesquisa e o conteúdo abaixo */
@@ -141,6 +146,11 @@
         margin-top: -46px;
     }
     
+    .card.card-fav{ 
+        justify-items: center;
+        height: 220px;
+    }
+
     .modal-body{
         font-size: 14px;
     }
@@ -239,6 +249,11 @@
         background-position: center 60%;
     }
 
+    .card.card-fav{ 
+        justify-items: center;
+        height: 220px;
+    }
+
     .card-title{
         margin-top: -46px;
     }
@@ -303,8 +318,8 @@
     }
 
     .card{
-        width: 320px;
-        height: 320px;
+        width: 280px;
+        height: 330px;
         background-size: 180%; 
         background-position: center 60%;
     }
