@@ -30,7 +30,7 @@ body{
     flex-direction: column;
     row-gap: 40px;
     background-color: black;
-    background-image: url("./src/assets/images/background-pokemon-black.jpg");
+    background-image: url("https://enzoandrade2001.github.io/PI-pokeapi/src/assets/images/background-pokemon-black.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position-x: center;
